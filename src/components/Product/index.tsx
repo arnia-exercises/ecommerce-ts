@@ -1,3 +1,5 @@
+import { convertToReal } from "../../utils/functions"
+
 type ProductProps = ProductType & {
   addProductToCart: (product: ProductType) => void
   removeProductFromCart: (productId: string) => void
@@ -26,7 +28,7 @@ const Product = ({
         removeProductFromCart(id)
       }}
     />
-    <p>Valor: R${value.toFixed(2).replace(".", ",")}</p>
+    <p>Valor: {convertToReal(value)}</p>
   </div>
 )
 

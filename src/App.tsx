@@ -3,6 +3,7 @@ import BaseLayout from "./layout/BaseLayout"
 import ProductsList from "./pages/ProductsList"
 import { SCREENS } from "./assets/constants/screens"
 import Cart from "./pages/Cart"
+import Checkout from "./pages/Checkout"
 
 function App() {
   const [cart, setCart] = useState<Array<ProductCartType>>([])
@@ -18,10 +19,16 @@ function App() {
         />
       )
     }
+
     if (currentScreen === SCREENS.CART) {
-      return <Cart cart={cart} setCart={setCart} />
+      return <Cart
+        cart={cart}
+        setCart={setCart}
+        setCurrentScreen={setCurrentScreen}
+      />
     }
-    return <></>
+
+    return <Checkout cart={cart} />
   }
 
   return (

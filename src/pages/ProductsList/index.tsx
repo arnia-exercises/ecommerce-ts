@@ -31,10 +31,11 @@ const ProductsList = ({
       <div>
         {products.map((product) => (
           <Product
+            key={product.id}
             {...product}
             addProductToCart={addProductToCart}
             removeProductFromCart={removeProductFromCart}
-            isOnCart={Boolean(cart.find(({ id }) => id === product.id))}
+            isOnCart={cart.some(({ id }) => id === product.id)}
           />
         ))}
       </div>
